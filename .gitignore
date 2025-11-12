@@ -1,0 +1,29 @@
+# Compiler- und Build-Dateien
+*.o
+*.obj
+*.exe
+*.out
+*.log
+*.dll
+*.so
+*.dylib
+
+# Build-Ordner
+build/
+bin/
+obj/
+
+# Editor/IDE-Dateien
+*.vcxproj*
+*.sln
+*.user
+*.idea/
+*.vscode/
+
+# MacOS temporäre Dateien
+.DS_Store
+
+# Allgemeine temporäre Dateien
+*.tmp
+*.swp
+
