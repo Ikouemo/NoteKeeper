@@ -11,12 +11,12 @@ Users can create, edit, delete, and organize notes with a clean UI and persisten
 
 ## 🚀 Features
 
-* 📝 Create, edit, and delete notes  
-* 🔍 Search by title or content  
-* 🗂️ Organize by category  
-* 💾 Auto-save to MySQL database  
-* 🪟 Modern Qt UI (QMainWindow, QListWidget, QTextEdit, etc.)  
-* 🧠 MVC architecture for clean separation of logic
+* 📝 Create, edit, and delete notes - manage your notes with ease
+* 🔍 Search by title or content - quickly find what you need  
+* 🗂️ Organize by category - group notes by topics like Work, Personal, etc 
+* 💾 Auto-save to MySQL database - your notes are always stored safely
+* 🪟 Modern Qt UI - built with QMainWindow, QListWidget, QTextEdit, and more  
+* 🧠 MVC architecture - clean separation of data, logic, and presentation
 
 ---
 
