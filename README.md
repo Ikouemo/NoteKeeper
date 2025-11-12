@@ -30,19 +30,29 @@ Users can create, edit, delete, and organize notes with a clean UI and persisten
 * Method: Kanban
 * IDE: CLion / VS Code / Qt Creator
   
-
 ---
 
 ## 🧱 Project Structure
 
 ```
-ZeroClassGenerator/
+Notekeeper/
+├── CMakeLists.txt
+├── README.md
+├── main.cpp
+├── NoteController.cpp / NoteController.hpp # Handle user actions (create, edit, delete), Communicate with "NoteRepository", Update the view after data changes and Maintain current note state.
+├── Note.cpp / Note.hpp # represents a single note
+├── Databasemanager.cpp / Databasemanager.hpp # manages MySQL connection and queries
+├── NoteRepository.cpp / NoteRepository.hpp # handles CRUD operations for notes
+├── MainWindow.cpp / MainWindow.hpp # main application window
+├── NoteListView.cpp / NoteListView.hpp # list of notes (titles, snippets)
+├── NoteEditorView.cpp / NoteEditorView.hpp # text editor for creating/editing notes
+├── config.cpp / config.hpp
+├── icons
+├── styles
+├── schema.sql
+├── docs
+├── architecture.md
 ├── .gitignore
-├── ClassGenerator.pro                   # Qt project configuration file (used by qmake.
-├── main.cpp                             # Program entry point.          
-├── MainWindow.cpp / MainWindow.hpp      # QWidget-based main interface for configuring class generation.                         
-├── SecondWindow.cpp / SecondWindow.hpp  # QDialog-based window displaying generated code and save option.     
-├── RRADME.md
 
 ```
 --- 
