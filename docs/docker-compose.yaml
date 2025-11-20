@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: ivanov@19
+      POSTGRES_PASSWORD: melong11
+      POSTGRES_DB: notekeeper_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
