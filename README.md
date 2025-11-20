@@ -39,38 +39,38 @@ Notekeeper/
 ├── CMakeLists.txt
 ├── README.md
 ├── src/
-  ├── main.cpp
-  ├── controller/
-    ├── NoteController.cpp  # Handle user actions (create, edit, delete), Communicate with "NoteRepository", Update the view after data changes and Maintain current note state.
-  ├── model/
-    ├── Note.cpp # represents a single note
-    ├── Databasemanager.cpp  # manages MySQL connection and queries
-    ├── NoteRepository.cpp  # handles CRUD operations for notes
-  ├── view/
-    ├── MainWindow.cpp  # main application window
-    ├── NoteListView.cpp  # list of notes (titles, snippets)
-    ├── NoteEditorView.cpp # text editor for creating/editing notes
-  ├── utils/
-    ├── config.cpp
+|  ├── main.cpp
+|  ├── controller/
+|    ├── NoteController.cpp  # Handle user actions (create, edit, delete), Communicate with "NoteRepository", Update the view after data changes and Maintain current note state.
+|  ├── model/
+|    ├── Note.cpp # represents a single note
+|    ├── Databasemanager.cpp  # manages MySQL connection and queries
+|    ├── NoteRepository.cpp  # handles CRUD operations for notes
+|  ├── view/
+|    ├── MainWindow.cpp  # main application window
+|    ├── NoteListView.cpp  # list of notes (titles, snippets)
+|    ├── NoteEditorView.cpp # text editor for creating/editing notes
+|  ├── utils/
+|    ├── config.cpp
 ├── include/
-  ├──controller/
-    ├── NoteController.hpp
-  ├── model/
-    ├── Note.hpp
-    ├── Databasemanager.hpp
-    ├── NoteRepository.hpp
-  ├── view/
-    ├── MainWindow.hpp 
-    ├── NoteListView.hpp 
-    ├── NoteEditorView.hpp
-  ├── utils/
-    ├── config.hpp
+|  ├──controller/
+|    ├── NoteController.hpp
+|  ├── model/
+|    ├── Note.hpp
+|    ├── Databasemanager.hpp
+|    ├── NoteRepository.hpp
+|  ├── view/
+|    ├── MainWindow.hpp 
+|    ├── NoteListView.hpp 
+|    ├── NoteEditorView.hpp
+| ├── utils/
+|    ├── config.hpp
 ├── ressources
-  ├── icons/
-  ├── styles
-  ├── schema.sql
+|   ├── icons/
+|   ├── styles
+|   ├── schema.sql
 ├── docs/
-  ├── architecture.md
+|   ├── architecture.md
 ├── .gitignore
 
 ```
