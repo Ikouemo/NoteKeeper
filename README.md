@@ -38,15 +38,27 @@ Users can create, edit, delete, and organize notes with a clean UI and persisten
 Notekeeper/
 ├── CMakeLists.txt
 ├── README.md
-├── main.cpp
-├── NoteController.cpp / NoteController.hpp # Handle user actions (create, edit, delete), Communicate with "NoteRepository", Update the view after data changes and Maintain current note state.
-├── Note.cpp / Note.hpp # represents a single note
-├── Databasemanager.cpp / Databasemanager.hpp # manages MySQL connection and queries
-├── NoteRepository.cpp / NoteRepository.hpp # handles CRUD operations for notes
-├── MainWindow.cpp / MainWindow.hpp # main application window
-├── NoteListView.cpp / NoteListView.hpp # list of notes (titles, snippets)
-├── NoteEditorView.cpp / NoteEditorView.hpp # text editor for creating/editing notes
-├── config.cpp / config.hpp
+├── src/
+  ├── main.cpp
+  ├── controller/
+    ├── NoteController.cpp  # Handle user actions (create, edit, delete), Communicate with "NoteRepository", Update the view after data changes and Maintain current note state.
+  ├── model/
+    ├── Note.cpp # represents a single note
+    ├── Databasemanager.cpp / Databasemanager.hpp # manages MySQL connection and queries
+    ├── NoteRepository.cpp / NoteRepository.hpp # handles CRUD operations for notes
+  ├── view/
+    ├── MainWindow.cpp / MainWindow.hpp # main application window
+    ├── NoteListView.cpp / NoteListView.hpp # list of notes (titles, snippets)
+    ├── NoteEditorView.cpp / NoteEditorView.hpp # text editor for creating/editing notes
+  ├── utils/
+    ├── config.cpp / config.hpp
+include/
+  ├──controller/
+    ├── NoteController.hpp
+  ├── model/
+    ├── Note.hpp
+    ├── Databasemanager.hpp
+    ├── NoteRepository.hpp
 ├── icons
 ├── styles
 ├── schema.sql
