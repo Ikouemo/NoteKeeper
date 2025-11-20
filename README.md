@@ -63,7 +63,7 @@ Notekeeper/
 |    ├── MainWindow.hpp 
 |    ├── NoteListView.hpp 
 |    ├── NoteEditorView.hpp
-| ├── utils/
+|  ├── utils/
 |    ├── config.hpp
 ├── ressources
 |   ├── icons/
