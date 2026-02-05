@@ -1,0 +1,175 @@
+<app-header
+  title="Selektivvertrags-Information"
+  [showClose]="true"
+  (close)="close()"
+></app-header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="section-header">Verträge</div>
+    <div class="list">
+      @if (vertragsliste?.length) {
+        @for (vertrag of vertragsliste; track vertrag.id) {
+          <button
+            type="button"
+            class="list-item"
+            [class.selected]="vertrag?.id === selectedVertrag?.id"
+            (click)="selectVertrag(vertrag)"
+          >
+            {{ vertrag?.id }}
+          </button>
+        }
+      } @else {
+        <div class="list-empty">Keine Verträge vorhanden.</div>
+      }
+    </div>
+  </aside>
+
+  <main class="content">
+    <section class="beschreibung-row">
+      <div class="beschreibung-title">Beschreibung</div>
+
+      <div class="beschreibung-fields-vertical">
+        <input
+          class="small-input"
+          type="text"
+          placeholder="Vertragsname"
+          [value]="selectedVertrag?.bezeichnung ?? ''"
+          readonly
+        />
+
+        <input
+          class="small-input"
+          type="text"
+          placeholder="Vertragstyp"
+          [value]="getVertragstypName(selectedVertrag?.typ) ?? ''"
+          readonly
+        />
+      </div>
+    </section>
+
+    <section class="beschreibung-row">
+      <div class="beschreibung-title">Bezugsdatum</div>
+
+      <div class="beschreibung-fields-vertical">
+        <div class="date-wrapper">
+          <input type="text" [value]="bezugsdatum ?? ''" readonly />
+          <button type="button" (click)="showPicker = true">...</button>
+        </div>
+
+        @if (showPicker) {
+          <input
+            class="date-input"
+            type="date"
+            [value]="bezugsdatum ?? ''"
+            (change)="setDate($any($event.target).value)"
+            (blur)="showPicker = false"
+          />
+        }
+      </div>
+    </section>
+
+    <section class="beschreibung-row">
+      <div class="beschreibung-title">OKV</div>
+
+      <div class="beschreibung-fields-vertical">
+        <select
+          class="okv-select"
+          [value]="okv ?? ''"
+          (change)="setOkv($any($event.target).value)"
+        >
+          <option value="" disabled>Bitte auswählen</option>
+          @if (okvListe?.length) {
+            @for (okvItem of okvListe; track okvItem.code) {
+              <option [value]="okvItem.code">
+                KV - {{ okvItem?.region ?? '' }}
+              </option>
+            }
+          }
+        </select>
+      </div>
+    </section>
+
+    <div class="accordion-group">
+      <details class="accordion">
+        <summary>Kostenträger</summary>
+        <div class="accordion-content">
+          @if (bezugsdatum && okv != null) {
+            @if (kostentraegerListe?.length) {
+              <ul class="simple-list">
+                @for (kostentraeger of kostentraegerListe; track kostentraeger.ikNummer) {
+                  <li>
+                    {{ kostentraeger?.bezeichnung ?? '' }}
+                    ({{ kostentraeger?.ikNummer ?? '' }})
+                  </li>
+                }
+              </ul>
+            } @else {
+              <div class="empty-state">Keine Kostenträger gefunden.</div>
+            }
+          } @else {
+            <div class="empty-state">
+              Bitte Bezugsdatum und OKV auswählen.
+            </div>
+          }
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>Akutdiagnosen</summary>
+        <div class="accordion-content">
+          @if (bezugsdatum) {
+            @if (akutdiagnoseliste?.length) {
+              <ul class="simple-list">
+                @for (akutdiagnose of akutdiagnoseliste; track akutdiagnose.icd) {
+                  <li>
+                    {{ akutdiagnose?.icd ?? '' }}
+                    ({{ akutdiagnose?.diagnoseText ?? '' }})
+                  </li>
+                }
+              </ul>
+            } @else {
+              <div class="empty-state">
+                Es gibt keine Akutdiagnosen für diesen Vertrag.
+              </div>
+            }
+          } @else {
+            <div class="empty-state">Bitte Bezugsdatum auswählen.</div>
+          }
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>Vertragsfunktionen</summary>
+        <div class="accordion-content">
+          @if (bezugsdatum && okv != null) {
+            @if (vertragsfunktionliste?.length) {
+              <ul class="simple-list">
+                @for (vertragsfunktion of vertragsfunktionliste; track vertragsfunktion.funktionsId) {
+                  <li>
+                    {{ vertragsfunktion?.funktionsId ?? '' }}
+                    ({{ vertragsfunktion?.funktionsBezeichnung ?? '' }})
+                  </li>
+                }
+              </ul>
+            } @else {
+              <div class="empty-state">Keine Vertragsfunktionen gefunden.</div>
+            }
+          } @else {
+            <div class="empty-state">
+              Bitte Bezugsdatum und OKV auswählen.
+            </div>
+          }
+        </div>
+      </details>
+    </div>
+  </main>
+</div>
+
+<footer class="home-footer">
+  <div class="footer-toolbar">
+    <div class="footer-actions">
+      <svd-button buttonText="Schließen" (buttonClicked)="close()"></svd-button>
+    </div>
+  </div>
+</footer>
