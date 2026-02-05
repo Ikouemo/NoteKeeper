@@ -77,6 +77,7 @@ class ApiError extends Error {
 @Component({
   selector: 'app-selektivvertrags-information',
   templateUrl: './selektivvertrags-information.component.html',
+  styleUrls: ['./selektivvertrags-information.component.scss'],
 })
 export class SelektivvertragsInformationComponent {
   selectedVertrag?: { vertragsid?: string | number };
