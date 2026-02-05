@@ -1,0 +1,25 @@
+<header class="app-header">
+  <div class="app-toolbar">
+    <h1 class="app-title">{{ title }}</h1>
+
+    @if (showClose) {
+      <button
+        type="button"
+        class="icon-button"
+        (click)="onClose()"
+        aria-label="Close"
+      >
+        <svg
+          class="icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M6.225 5.175a.75.75 0 0 0-1.06 1.06L10.94 12l-5.776 5.765a.75.75 0 1 0 1.06 1.06L12 13.06l5.776 5.765a.75.75 0 0 0 1.06-1.06L13.06 12l5.776-5.765a.75.75 0 0 0-1.06-1.06L12 10.94 6.225 5.175z"
+          />
+        </svg>
+      </button>
+    }
+  </div>
+</header>
