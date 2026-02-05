@@ -26,6 +26,12 @@
   </aside>
 
   <main class="content">
+    @if (errorMessage) {
+      <div class="error-banner" role="alert">
+        {{ errorMessage }}
+      </div>
+    }
+
     <section class="beschreibung-row">
       <div class="beschreibung-title">Beschreibung</div>
 
