@@ -59,18 +59,31 @@
 
       <div class="beschreibung-fields-vertical">
         <div class="date-wrapper">
-          <input type="text" [value]="bezugsdatum ?? ''" readonly />
-          <button type="button" (click)="showPicker = true">...</button>
+          <input
+            class="date-display"
+            type="text"
+            [value]="bezugsdatum ?? ''"
+            readonly
+          />
+          <button
+            type="button"
+            class="date-button"
+            (click)="showPicker = true"
+          >
+            ...
+          </button>
         </div>
 
         @if (showPicker) {
-          <input
-            class="date-input"
-            type="date"
-            [value]="bezugsdatum ?? ''"
-            (change)="setDate($any($event.target).value)"
-            (blur)="showPicker = false"
-          />
+          <div class="date-picker">
+            <input
+              class="date-picker-input"
+              type="date"
+              [value]="bezugsdatum ?? ''"
+              (change)="setDate($any($event.target).value)"
+              (blur)="showPicker = false"
+            />
+          </div>
         }
       </div>
     </section>
