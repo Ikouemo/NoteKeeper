@@ -88,6 +88,50 @@ export class SelektivvertragsInformationComponent {
 
   constructor(private svdService: SvdService) {}
 
+  /**
+   * Formatiert ein Datum als Quartalslabel.
+   * Erwartet "YYYY.MM.DD" und liefert "YYYY - Qn".
+   *
+   * @param {(string | undefined | null)} value Datum als String.
+   * @return {*}  {string} Das Quartalslabel im Format "YYYY - Qn".
+   * @memberof SelektivvertragsInformationComponent
+   */
+  public formatQuartalLabel(value: string | undefined | null): string {
+    if (!value || typeof value !== 'string') return '';
+    const m = value.match(/^(\d{4})\.(\d{2})\.\d{2}$/);
+    if (!m) return value;
+    const year = m[1];
+    const month = parseInt(m[2], 10);
+    const quarter = Math.floor((month - 1) / 3) + 1;
+    return `${year} - Q${quarter}`;
+  }
+
+  /**
+   * Setzt das Bezugsdatum fuer den ausgewaehlten Vertrag.
+   * Erwartet ein Datum im Format "YYYY-MM-DD" (Backend-kompatibel).
+   * Akzeptiert auch "YYYY.MM.DD", das nach "YYYY-MM-DD" normalisiert wird.
+   *
+   * @param {(string | string[] | null | undefined)} value Datumseingabe als String oder Array.
+   * @return {*}  {void}
+   * @memberof SelektivvertragsInformationComponent
+   */
+  public setDate(value: string | string[] | null | undefined): void {
+    if (!value) {
+      return;
+    }
+    const dateStr = Array.isArray(value) ? value[0] : value;
+    if (typeof dateStr === 'string' && dateStr.match(/^\d{4}\.\d{2}\.\d{2}$/)) {
+      this.bezugsdatum = dateStr.replace(/\./g, '-');
+    } else {
+      const date = new Date(dateStr as string);
+      if (!isNaN(date.getTime())) {
+        this.bezugsdatum = date.toISOString().slice(0, 10);
+      }
+    }
+
+    this.svdInfoLaden();
+  }
+
   loadVertragsfunktionen(): void {
     this.clearError();
 
@@ -156,5 +200,9 @@ export class SelektivvertragsInformationComponent {
 
   private clearError(): void {
     this.errorMessage = '';
+  }
+
+  private svdInfoLaden(): void {
+    this.loadVertragsfunktionen();
   }
 }
