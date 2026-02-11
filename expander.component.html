@@ -1,13 +1,12 @@
-<div class="expander" [class]="'expander status-' + infoLevel">
+<div class="expander" [class]="'expander status-' + status">
   <div class="status-bar"></div>
 
   <div class="main-content">
     <button
       type="button"
       class="expander-header"
-      [disabled]="infoLevel === 'disabled'"
       [attr.aria-expanded]="isExpanded"
-      (click)="toggleExpand()"
+      (click)="toggle()"
     >
       <div class="text-content">
         <h2 class="title">{{ title }}</h2>
@@ -17,9 +16,7 @@
       </div>
 
       <div class="icon-container">
-        @if (infoLevel !== 'disabled') {
-          <span class="expander-icon" [class.expanded]="isExpanded"></span>
-        }
+        <span class="expander-icon" [class.expanded]="isExpanded"></span>
       </div>
     </button>
 
