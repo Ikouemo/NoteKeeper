@@ -1,0 +1,54 @@
+:host {
+  display: block;
+  background-color: var(--header-background, #ffffff);
+  color: var(--header-color, #111111);
+  border-bottom: 1px solid var(--header-border-color, #e0e0e0);
+}
+
+.app-toolbar {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 0 16px;
+  gap: 12px;
+}
+
+.app-title {
+  flex: 1;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 18px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.icon-button:focus-visible {
+  outline: 2px solid var(--header-focus-color, #5b9dd9);
+  outline-offset: 2px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  display: block;
+}

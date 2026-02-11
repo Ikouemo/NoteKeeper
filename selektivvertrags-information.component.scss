@@ -1,0 +1,173 @@
+@use './colors' as *;
+
+html,
+body,
+ion-app {
+  height: 100%;
+  margin: 0;
+}
+
+.layout {
+  display: flex;
+  height: calc(100% - 56px - 56px);
+}
+
+.sidebar {
+  width: 200px;
+  border-right: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+}
+
+.section-header {
+  font-weight: bold;
+  padding: 10px;
+  background-color: $color-primary;
+  color: white;
+}
+
+.list {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.list-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.list-item.selected {
+  background-color: $color-primary-dark;
+  color: white;
+}
+
+.list-item:hover {
+  background-color: $color-primary-light;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.beschreibung-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.beschreibung-title {
+  font-weight: 600;
+  min-width: 140px;
+  padding-top: 6px;
+}
+
+.beschreibung-fields-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 0;
+}
+
+.small-input {
+  width: 450px;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+}
+
+.date-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.date-display {
+  width: 180px;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+}
+
+.date-button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-weight: bold;
+}
+
+.date-picker {
+  margin-top: 6px;
+}
+
+.date-picker-input {
+  width: 180px;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+}
+
+.accordion-group {
+  margin-top: 16px;
+}
+
+.accordion {
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  background-color: #fff;
+}
+
+.accordion summary {
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.accordion[open] summary {
+  border-bottom: 1px solid $color-border;
+}
+
+.accordion-content {
+  padding: 8px 12px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.simple-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.simple-list li {
+  padding: 2px 0;
+}
+
+.akutdiagnose-hinweis {
+  --background: $color-warning-bg;
+  border-left: 4px solid $color-warning-border;
+}
+
+.akutdiagnose-hinweis {
+  color: $color-warning-text;
+  font-style: italic;
+  font-size: 0.85rem;
+  padding: 6px 8px;
+  background-color: $color-warning-bg;
+}
+
+.okv-select {
+  margin-top: 0;
+  width: 240px;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+}
+
+.error-banner {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid $color-warning-border;
+  background-color: $color-warning-bg;
+  color: $color-warning-text;
+}
