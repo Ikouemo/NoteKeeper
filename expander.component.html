@@ -1,0 +1,32 @@
+<div class="expander" [class]="'expander status-' + infoLevel">
+  <div class="status-bar"></div>
+
+  <div class="main-content">
+    <button
+      type="button"
+      class="expander-header"
+      [disabled]="infoLevel === 'disabled'"
+      [attr.aria-expanded]="isExpanded"
+      (click)="toggleExpand()"
+    >
+      <div class="text-content">
+        <h2 class="title">{{ title }}</h2>
+        @if (description) {
+          <p class="description">{{ description }}</p>
+        }
+      </div>
+
+      <div class="icon-container">
+        @if (infoLevel !== 'disabled') {
+          <span class="expander-icon" [class.expanded]="isExpanded"></span>
+        }
+      </div>
+    </button>
+
+    @if (isExpanded) {
+      <div class="expander-body">
+        <ng-content></ng-content>
+      </div>
+    }
+  </div>
+</div>
